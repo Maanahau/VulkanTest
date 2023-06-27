@@ -1,8 +1,11 @@
+STB_INCLUDE_PATH = /home/maanahau/Libraries/cpp/stb
+
 CFLAGS = -std=c++17 -O2 -g
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
+
 a.out: *.cpp *.hpp
-	g++ $(CFLAGS) -o a.out *.cpp $(LDFLAGS)
+	g++ $(CFLAGS) -o a.out *.cpp -I$(STB_INCLUDE_PATH) $(LDFLAGS)
 
 ./shaders/simple_shader.vert.spv: ./shaders/simple_shader.vert
 	glslc ./shaders/simple_shader.vert -o ./shaders/simple_shader.vert.spv
