@@ -1,11 +1,12 @@
 STB_INCLUDE_PATH = /home/maanahau/Libraries/cpp/stb
+TINY_OBJ_LOADER_INCLUDE_PATH = /home/maanahau/Libraries/cpp
 
 CFLAGS = -std=c++17 -O2 -g
 LDFLAGS = -lglfw -lvulkan -ldl -lpthread -lX11 -lXxf86vm -lXrandr -lXi
 
 
 a.out: *.cpp *.hpp
-	g++ $(CFLAGS) -o a.out *.cpp -I$(STB_INCLUDE_PATH) $(LDFLAGS)
+	g++ $(CFLAGS) -o a.out *.cpp -I$(STB_INCLUDE_PATH) -I$(TINY_OBJ_LOADER_INCLUDE_PATH) $(LDFLAGS)
 
 ./shaders/simple_shader.vert.spv: ./shaders/simple_shader.vert
 	glslc ./shaders/simple_shader.vert -o ./shaders/simple_shader.vert.spv
